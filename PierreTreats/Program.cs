@@ -14,7 +14,7 @@ namespace PierreTreats
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<RecipeBoxContext>(
+      builder.Services.AddDbContext<PierreTreatsContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -23,7 +23,7 @@ namespace PierreTreats
                         );
 
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                        .AddEntityFrameworkStores<RecipeBoxContext>()
+                        .AddEntityFrameworkStores<PierreTreatsContext>()
                         .AddDefaultTokenProviders();
 
       // builder.Services.Configure<IdentityOptions>(options =>
