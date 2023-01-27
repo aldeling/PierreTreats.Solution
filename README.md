@@ -26,13 +26,13 @@ This application allows a user to use authentication to retrieve previously adde
 4. In the terminal navigate to Factory once the run **dotnet restore** this should add all need packages
 5. You will then in the main folder and a new file called **appsettings.json**
 6. Once added you will add the following code
-`` json
+``` json
 {
   "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Port=3306;database=firstname_lastname;uid=[uid];pwd=[pwd];"
   }
 }
-``
+```
 7. You will replace the firstname and lastname with your first and last name and the [uid] and [pwd] including the brackets you will replace with your user name and password for your SQL Workbench
 8. Once that file is add in the terminal in Factory you will run **dotnet ef migrations add Setup** and **then dotnet ef database update** this will setup your database that you will use
 9. Once you have completed all of the previous steps run **dotnet watch run**
