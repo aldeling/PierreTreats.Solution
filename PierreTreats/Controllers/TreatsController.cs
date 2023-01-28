@@ -93,7 +93,15 @@ namespace PierreTreats.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddFLavor(Treat treat, int flavorId)
+    public ActionResult AddFlavor(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorType");
+      return View(thisTreat);
+    }
+    
+    [HttpPost]
+    public ActionResult AddFlavor(Treat treat, int flavorId)
     {
       #nullable enable
       TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.FlavorId == flavorId && join.TreatId == treat.TreatId));

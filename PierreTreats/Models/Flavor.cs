@@ -9,5 +9,6 @@ namespace PierreTreats.Models
     [Required(ErrorMessage = "The flavor type can't be empty")]
     public string FlavorType { get; set; }
     public List<TreatFlavor> JoinEntities { get; }
+    public ApplicationUser User { get; set; }
   }
 }

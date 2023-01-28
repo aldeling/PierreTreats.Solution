@@ -6,8 +6,10 @@
 
 <h1>Welcome to Pierre's Sweet and Savory Treats</h1>
 </hr>
-<h4>Flavors</h4>
-@if (Model["flavors".Length == 0])
+@if (User.Identity.IsAuthenticated)
+{
+<h4>Flavors for @User.Identity.Name</h4>
+@if (Model["flavors"].Length == 0)
 {
   <p>No Flavors have been added yet</p>
 }
@@ -17,6 +19,13 @@
     <li>@Html.ActionLink(@flavor.FlavorType, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
   }
 </ul>
+}
+else
+{
+  <h4>Flavors</h4>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your flavors</p>
+}
+
 @if (User.Identity.IsAuthenticated)
 {
   <h4>Treats for @User.Identity.Name</h4>
