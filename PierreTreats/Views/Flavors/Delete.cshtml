@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTreats.Models.Flavor
+
+@Html.DisplayNameFor(model => model.FlavorType): @Html.DisplayFor(model => model.FlavorType)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
