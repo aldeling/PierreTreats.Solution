@@ -7,12 +7,12 @@
 <h1>Welcome to Pierre's Sweet and Savory Treats</h1>
 </hr>
 <h4>Flavors</h4>
-@if (model["flavors".Length == 0])
+@if (Model["flavors".Length == 0])
 {
   <p>No Flavors have been added yet</p>
 }
 <ul>
-  @foreach (Flavor flavor in model["flavors"])
+  @foreach (Flavor flavor in Model["flavors"])
   {
     <li>@Html.ActionLink(@flavor.FlavorType, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
   }
@@ -20,12 +20,12 @@
 @if (User.Identity.IsAuthenticated)
 {
   <h4>Treats for @User.Identity.Name</h4>
-  @if (model["treats"].Length == 0)
+  @if (Model["treats"].Length == 0)
   {
     <p>No treats have been added yet</p>
   }
   <ul>
-    @foreach (Treat treat in model["treats"])
+    @foreach (Treat treat in Model["treats"])
     {
       <li>@Html.ActionLink(@treat.TreatType, "Details", "Treats", new { id = @treat.TreatId})</li>
     }

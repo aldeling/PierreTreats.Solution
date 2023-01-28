@@ -5,10 +5,13 @@
 @model PierreTreats.Models.Flavor
 
 <h4>Add a new Flavor</h4>
+
+<p>@Html.ValidationMessageFor(model => model.FlavorType, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.FlavorType)
-  @Html.TextBoxFor(model = model.FlavorType)
+  @Html.TextBoxFor(model => model.FlavorType)
 
   <input type="submit" value="Add new Flavor" class="btn btn-default" />
 }
